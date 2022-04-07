@@ -12,6 +12,7 @@ import "./index.scss";
 
 const HelloThreejs: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const resizeHandleRef = useRef<() => void>();
 
   useEffect(() => {
     if (canvasRef.current) {
@@ -58,13 +59,6 @@ const HelloThreejs: React.FC = () => {
       const render = (time: number) => {
         time = time * 0.001;
 
-        // 修改形变比例
-        const canvas = renderer.domElement;
-        camera.aspect = canvas.clientWidth / canvas.clientHeight;
-        camera.updateProjectionMatrix();
-
-        renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
-
         cubes.forEach((cube) => {
           cube.rotation.x = time;
           cube.rotation.y = time;
@@ -73,7 +67,34 @@ const HelloThreejs: React.FC = () => {
         renderer.render(scene, camera);
         window.requestAnimationFrame(render);
       };
+
       window.requestAnimationFrame(render);
+
+      const handleResize = () => {
+        // 修改形变比例
+        const canvas = renderer.domElement;
+        camera.aspect = canvas.clientWidth / canvas.clientHeight;
+        camera.updateProjectionMatrix();
+
+        // 设置渲染尺寸
+        renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
+      };
+
+      handleResize();
+
+      resizeHandleRef.current = handleResize; //将 resizeHandleRef.current 与 useEffect() 中声明的函数进行绑定
+
+      const resizeObserver = new ResizeObserver(() => {
+        handleResize();
+      });
+
+      resizeObserver.observe(canvasRef.current);
+
+      return () => {
+        if (resizeHandleRef && resizeHandleRef.current) {
+          resizeObserver.disconnect();
+        }
+      };
     }
   }, [canvasRef]);
 
