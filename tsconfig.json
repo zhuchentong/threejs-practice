@@ -19,7 +19,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "sourceMap": true,
-    "removeComments": false
+    "removeComments": false,
+    "noImplicitAny": false
   },
   "include": ["src"]
 }
