@@ -1,0 +1,18 @@
+.full-screen,
+canvas {
+  display: block;
+  height: inherit;
+  width: inherit;
+}
+
+.split {
+  position: fixed;
+  display: flex;
+  width: inherit;
+  height: inherit;
+}
+
+.split div {
+  width: inherit;
+  height: inherit;
+}

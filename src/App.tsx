@@ -1,7 +1,8 @@
-// import React from 'react';
-
 import "./App.css";
-import HelloLight from "./components/hello-light";
+import HelloShadow from "./components/hello-shadow";
+// import HelloFakeShadow from "./components/hello-fake-shadow";
+// import HelloCamera from "./components/hello-camera";
+// import HelloLight from "./components/hello-light";
 // import HelloThreejs from "./components/hello-threejs";
 // import HelloPrimitives from "./components/hello-primitives";
 // import HelloScene from "./components/hello-scene";
@@ -12,7 +13,10 @@ function App() {
   // return <HelloPrimitives></HelloPrimitives>;
   // return <HelloScene></HelloScene>;
   // return <HelloTexture></HelloTexture>;
-  return <HelloLight></HelloLight>;
+  // return <HelloLight></HelloLight>;
+  // return <HelloCamera></HelloCamera>;
+  // return <HelloFakeShadow></HelloFakeShadow>;
+  return <HelloShadow></HelloShadow>;
 }
 
 export default App;
