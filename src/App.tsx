@@ -1,5 +1,7 @@
 import "./App.css";
-import HelloShadow from "./components/hello-shadow";
+// import HelloFog from "./components/hello-fog";
+import HelloRenderTarget from "./components/hello-render-target";
+// import HelloShadow from "./components/hello-shadow";
 // import HelloFakeShadow from "./components/hello-fake-shadow";
 // import HelloCamera from "./components/hello-camera";
 // import HelloLight from "./components/hello-light";
@@ -16,7 +18,9 @@ function App() {
   // return <HelloLight></HelloLight>;
   // return <HelloCamera></HelloCamera>;
   // return <HelloFakeShadow></HelloFakeShadow>;
-  return <HelloShadow></HelloShadow>;
+  // return <HelloShadow></HelloShadow>;
+  // return <HelloFog></HelloFog>;
+  return <HelloRenderTarget></HelloRenderTarget>;
 }
 
 export default App;
